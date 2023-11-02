@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
     }
 
         btnTwo?.setOnClickListener { tvInput?.append("2")
-            btnTwo?.setBackgroundColor(Color.DKGRAY) }
+            btnTwo?.setBackgroundColor(Color.DKGRAY)
+        }
         btnThree?.setOnClickListener {  tvInput?.append("3")
             btnThree?.setBackgroundColor(Color.BLUE) }
         btnFour?.setOnClickListener { tvInput?.append("4")
@@ -70,14 +71,26 @@ class MainActivity : AppCompatActivity() {
             btnEight?.setBackgroundColor(Color.DKGRAY) }
         btnNine?.setOnClickListener { tvInput?.append("9")
             btnNine?.setBackgroundColor(getColor(R.color.af_Blue)) }
-        btnZero?.setOnClickListener {  tvInput?.append("0")
-            btnZero?.setBackgroundColor(Color.GREEN) }
+        btnZero?.setOnClickListener {
+            //onDigitZero()
+            tvInput?.append("0")
+            btnZero?.setBackgroundColor(Color.GREEN)
+            if(Integer.parseInt(tvInput?.text.toString())>0 ) {
+                tvInput?.append("0")
+            }
+            else
+            {
+                tvInput?.text="0"
+            }
+        }
 
 
 
 
 
     }
+
+
 
         fun onDigitTwo() {
             tvInput?.append("2")
@@ -126,8 +139,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun onDigitZero() {
-            tvInput?.append("0")
+            //tvInput?.append("0")
             btnZero?.setBackgroundColor(Color.BLACK)
+
+            if(Integer.parseInt(tvInput?.text.toString())>0 ) {
+                tvInput?.append("0")
+            }
+            else
+            {
+                tvInput?.text="0"
+            }
+
         }
 
 
@@ -142,6 +164,13 @@ class MainActivity : AppCompatActivity() {
                 firstNumeric = false
                 lastDot = false
             }
+
+            fun onDigit(view: View) {
+                if ((view as Button).text == "0" && tvInput?.text == "0") {
+
+                }
+            }
+
 
 
 
